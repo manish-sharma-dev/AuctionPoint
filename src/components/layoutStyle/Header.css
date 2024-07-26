@@ -1,0 +1,23 @@
+.header{
+    display: grid;
+    grid-template-columns: 600px;
+    grid-gap: 10px;
+    font-family:sans-serif;
+}
+
+.header-heading-1{
+    color: var(--Secondary-text-color);
+}
+
+.header-para{
+    font-size: 13px;
+    color: var(--primary-text-color);
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.btn{
+    width:fit-content;
+    padding: 5px 10px;
+    border-radius: 2px;
+}

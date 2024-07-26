@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --background-color :#0B1832 ;
+  --primary-text-color:#45536C ;
+  --Secondary-text-color :#A8B6CF ;
+}
+
+body{
+  background-color: var(--background-color);
+  color: var(--Secondary-text-color);
+}
+
+.btn{
+  background-color: var(--background-color);
+  color: var(--Secondary-text-color);
+  border: 1px solid var(--Secondary-text-color);
+  font-size: 10px;
+}
