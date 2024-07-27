@@ -1,0 +1,30 @@
+.AuctionSidebar{
+    border-right: 1px solid white;
+    min-height: 41rem;
+    height: 41rem;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Auction_sidebar_upper_part_text{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 14px;
+}
+
+.Auction_sidebar_upper_part_text_plus_text{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.Auction_sidebar_lower_part_text{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 13px;
+}

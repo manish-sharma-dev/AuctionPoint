@@ -1,0 +1,36 @@
+.Auctionmain{
+    margin: 0 10px;
+    padding: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.Auction_card_component{
+    border: 1px solid white;
+    width: 250px;
+    height: 320px;
+    overflow: hidden;
+    object-fit: fill;
+}
+
+.card_component{
+    width: 250px;
+    height: 190px;
+    max-height: 250px;
+    position: relative;
+    top: -10px;
+}
+
+.card_component_text{
+    padding: 0 10px 3px 10px;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card_component_para_2{
+    opacity: 75%;
+    font-size: 12px;
+}
