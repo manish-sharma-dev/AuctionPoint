@@ -14,7 +14,7 @@ export default function Navbar() {
             <li>Theme</li>
             <li className='nav-ele-list-home' onClick={() => Navigate('/')}>Home</li>
             <li className='nav-ele-list-Auction' onClick={() => Navigate("/auction")}>Auction</li>
-            <button className='btn' style={{ padding : "5px 15px"}}>Login</button>
+            <button className='btn' style={{ padding : "5px 15px"}} onClick={() => Navigate("/login")}>Login</button>
         </ul>
       </div>
     </nav>

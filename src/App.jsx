@@ -3,6 +3,8 @@ import Navbar from './components/layout/Navbar'
 import Home from './components/layout/Home'
 import Auction from './components/AuctionComponent/Auction'
 import { BrowserRouter ,Routes,Route } from 'react-router-dom'
+import Login from './components/UserRegisterComponent/Login'
+import Register from './components/UserRegisterComponent/Register'
 
 function App() {
 
@@ -13,6 +15,8 @@ function App() {
         <Routes>
           <Route path="/"  element = { <Home /> } ></Route>
           <Route path="/auction" element = { <Auction /> } ></Route>
+          <Route path="/login" element = { <Login /> }></Route>
+          <Route path="/register" element = { <Register /> }></Route>
         </Routes>
       </BrowserRouter>
     </div>
