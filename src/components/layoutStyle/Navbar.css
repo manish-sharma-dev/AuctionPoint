@@ -13,3 +13,19 @@ nav{
     list-style: none;
     font-size: 14px;
 }
+
+.nav-ele-list-home{
+    cursor: pointer;
+}
+
+.nav-ele-list-home:hover{
+    text-decoration: underline;
+}
+
+.nav-ele-list-Auction{
+    cursor: pointer;
+}
+
+.nav-ele-list-Auction:hover{
+    text-decoration: underline;
+}

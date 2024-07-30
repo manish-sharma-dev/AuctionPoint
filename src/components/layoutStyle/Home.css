@@ -1,0 +1,11 @@
+.wrapper{
+    margin:8vw 17vw;
+    /* border-left: 1px solid white; */
+    /* border-right: 1px solid white;/ */
+}
+
+.wraped{
+    width: 100%;
+    height: auto;
+    padding: 0 2px;
+}
