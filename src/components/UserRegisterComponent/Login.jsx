@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default function Login() {
   return (
     <div className='login'> 
-        <form className='login-form'>
+        <form className='login-form' action='submit'>
                 <div className='login-form-username'>
                     <p className='login-para-part-1'>Login</p>
                     <label for='username'>Username</label>
