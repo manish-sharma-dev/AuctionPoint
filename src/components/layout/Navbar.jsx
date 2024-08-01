@@ -11,7 +11,7 @@ export default function Navbar() {
       <img src='#' alt='Auction-Point' />
       <div>
         <ul className='nav-ele'>
-            <li>Theme</li>
+            <li className='nav-ele-list-sell' onClick={() => Navigate('/sellItem')}>Sell</li>
             <li className='nav-ele-list-home' onClick={() => Navigate('/')}>Home</li>
             <li className='nav-ele-list-Auction' onClick={() => Navigate("/auction")}>Auction</li>
             <button className='btn' style={{ padding : "5px 15px"}} onClick={() => Navigate("/login")}>Login</button>

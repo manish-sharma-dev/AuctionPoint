@@ -5,6 +5,7 @@ import Auction from './components/AuctionComponent/Auction'
 import { BrowserRouter ,Routes,Route } from 'react-router-dom'
 import Login from './components/UserRegisterComponent/Login'
 import Register from './components/UserRegisterComponent/Register'
+import AuctionPage from './components/AuctionPageComponent/AuctionPage'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/auction" element = { <Auction /> } ></Route>
           <Route path="/login" element = { <Login /> }></Route>
           <Route path="/register" element = { <Register /> }></Route>
+          <Route path="/sellItem" element = { <AuctionPage /> }></Route>
         </Routes>
       </BrowserRouter>
     </div>

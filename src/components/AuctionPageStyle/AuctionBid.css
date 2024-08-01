@@ -1,0 +1,27 @@
+.Auction-bid{
+    margin: 0;
+    padding:2px 4px;
+    border-right:1px solid var(--primary-text-color) ;
+    min-height:42vh;
+    overflow: hidden;
+    max-height: 60vh;
+}
+
+.Auction-bid-part{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.Auction_img_part{
+    width: 30px;
+    height:30px;
+    border-radius: 50%;
+}
+
+.auction-para-part-2{
+    opacity: 80%;
+    font-size: 12px;
+}
