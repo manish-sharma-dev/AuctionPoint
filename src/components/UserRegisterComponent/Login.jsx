@@ -20,6 +20,7 @@ export default function Login() {
       console.log("User Logged In")
 
       Navigate('/auction')
+      
     }
 
 
