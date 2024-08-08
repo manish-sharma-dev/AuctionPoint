@@ -1,0 +1,93 @@
+.new-auction-ele{
+    margin: 0;
+    font-size: 17px;
+}
+
+.new-auction-form-ele{
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.new-auction-para{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.new-auction-form-div-ele{
+    /* display: flex;
+    justify-content: space-between; */
+    border: 1px solid var(--primary-text-color);
+    /* width: 100%; */
+    padding: 10px;
+    height: 23rem;
+    
+}
+
+.text-part{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.bid-number{
+    display: flex;
+    gap: 50px;
+    width: 100%;
+}
+
+.bid-Date{
+    display: flex;
+    gap: 50px;
+    width: 100%;
+}
+
+.inputfield{
+    background-color: var(--background-color);
+    border: 1px solid var(--primary-text-color);
+    color: var(--Secondary-text-color);
+    padding: 5px;
+    min-height: 10px ;
+    width: 100%;
+}
+
+.inputfield::placeholder{
+    outline: none;
+    color: var(--primary-text-color);
+}
+
+.inputfield-date{
+    background-color: var(--background-color);
+    border: 1px solid var(--primary-text-color);
+    color: var(--Secondary-text-color);
+    padding: 5px 10px;
+    min-height: 10px;
+    width: 165px;
+}
+
+.text-div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.new-auction-btn{
+    display: flex;
+    justify-content: center;
+    width: 10%;
+}
+
+.img-div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px; 
+}
+

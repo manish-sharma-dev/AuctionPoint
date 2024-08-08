@@ -33,6 +33,7 @@ const AuthProvider = ({ children }) => {
         const data = await response.json()
   
         localStorage.setItem("Accesstoken",data.Accesstoken)
+        localStorage.setItem("refreshToken",data.refreshToken)
 
         console.log("Response received from the backend",data)
         
@@ -43,8 +44,21 @@ const AuthProvider = ({ children }) => {
     }
 
     const logoutUser = async () => {
-        localStorage.removeItem('Accesstoken')
-        setIsloggedIn(false)
+        // localStorage.removeItem('Accesstoken')
+        // setIsloggedIn(false)
+
+        const token = localStorage.getItem('refreshToken')
+
+        const response = await fetch('http://localhost:4000/user/logout',{
+            method : 'GET',
+            headers : {
+                Authorization : "Bearer token"
+            }
+        })
+
+        console.log("User Logged Out Successfullly")
+
+        return response
     }
 
     return (
