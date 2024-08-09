@@ -1,0 +1,40 @@
+.profile{
+    display: flex;
+    justify-content: center;
+}
+
+.user-profile{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.userDetail-img{
+    width: 100px;
+    aspect-ratio: 1;
+    border: 1px solid var(--primary-text-color);
+}
+
+.userDetails{
+    display: flex;
+    gap: 5rem;
+}
+
+.userDetails-other-part-1{
+    display: flex;
+    gap: 20px;
+}
+
+.userDetails-other-part-2{
+    display: flex;
+    gap: 20px;
+}
+
+
+.user-profile-para{
+    border-bottom: 1px solid var(--primary-text-color);
+    color: var(--primary-text-color);
+    width: 150px;
+    font-size: 14px;
+    text-align: center;
+}

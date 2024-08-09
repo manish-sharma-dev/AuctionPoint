@@ -32,8 +32,8 @@ const AuthProvider = ({ children }) => {
 
         const data = await response.json()
   
-        localStorage.setItem("Accesstoken",data.Accesstoken)
-        localStorage.setItem("refreshToken",data.refreshToken)
+        localStorage.setItem("Accesstoken",data?.data?.Accesstoken)
+        localStorage.setItem("refreshToken",data?.data?.refreshToken)
 
         console.log("Response received from the backend",data)
         

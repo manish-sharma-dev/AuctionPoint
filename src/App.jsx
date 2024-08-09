@@ -7,6 +7,7 @@ import Login from './components/UserRegisterComponent/Login'
 import Register from './components/UserRegisterComponent/Register'
 import AuctionPage from './components/AuctionPageComponent/AuctionPage'
 import CreateNewauctionObject from './components/NewAuctionObject/CreateNewauctionObject'
+import UserProfile from './components/Profile/UserProfile'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/register" element = { <Register /> }></Route>
           <Route path="/sellItem" element = { <AuctionPage /> }></Route>
           <Route path="/auction/newauction" element = { <CreateNewauctionObject /> }></Route>
+          <Route path="/profile" element = { <UserProfile /> }></Route>
         </Routes>
       </BrowserRouter>
     </div>

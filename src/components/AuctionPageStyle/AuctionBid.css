@@ -5,6 +5,12 @@
     min-height:42vh;
     overflow: hidden;
     max-height: 60vh;
+   
+}
+
+.Auction-bid-main-part{
+    display: flex;
+    flex-direction: column;
 }
 
 .Auction-bid-part{

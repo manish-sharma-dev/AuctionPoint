@@ -37,7 +37,7 @@ export default function AuctionMain() {
               <p>{`StartingBid : ${item?.startingBid}`}</p>
             </div>
         </div>
-      ))}
+      ))} 
 
     </div>
   )
