@@ -18,6 +18,7 @@ export default function AuctionMain() {
       console.log("Response Received From the Backend",response)
 
       const result = data?.data
+      console.log(Array.isArray(result))
 
       setAuctionItem(result)
     }

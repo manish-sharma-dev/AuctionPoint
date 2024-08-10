@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './UserProfile.css'
 
 export default function UserProfile() {
-    const [userDetail,setUserDetails] = useState([])
+    const [userDetail,setUserDetails] = useState({})
 
     useEffect(() => {
         const FetchUserDetails = async() => {
@@ -28,46 +28,46 @@ export default function UserProfile() {
 
                 const data = await response.json()
                 const result = data?.data
+                
                 setUserDetails(result)
-
                 console.log(" User Details Data fetched Successfully",result)
-
+                
             } catch (error) {
                 console.log('Failed to Fetch User Detail',error)
             }
         }
-
-        // FetchUserDetails()   
+        
+        FetchUserDetails()   
+        // console.log("Name of the user",userDetail?.username)
     },[])
 
   return (
     <div className='wrapped'>
       <div className='wrapping'>
         <div className='profile'>
-            {userDetail?.map((item) => (
 
-                <div className='user-profile' key={item?._id}>
+                <div className='user-profile'>
 
                         <div className='userDetail-img'>
-                            <img src={item?.avatar} alt='ProfileImage' />
+                            <img src={userDetail?.avatar} alt='ProfileImage' />
                         </div>
 
                         <div className='userDetails'>
                             <div className='userDetails-other-part-1'>
                                 <label>UserName</label>
-                                <p className='user-profile-para'>{item?.username}</p>
+                                <p className='user-profile-para'>{userDetail?.username}</p>
                             </div>
 
                             <div className='userDetails-other-part-2'>
                                 <label>Email</label>
-                                <p className='user-profile-para'>{item?.email}</p>
+                                <p className='user-profile-para'>{userDetail?.email}</p>
                             </div>
                         </div>
 
                         <div className='userDetails'>
                             <div className='userDetails-other-part-1'>
                                 <label>FullName</label>
-                                <p className='user-profile-para'>{item?.fullName}</p>
+                                <p className='user-profile-para'>{userDetail?.fullName}</p>
                             </div>
 
                             <div className='userDetails-other-part-2'>
@@ -77,7 +77,6 @@ export default function UserProfile() {
                         </div>
 
                 </div>
-            ))}
         </div>
       </div>
     </div>

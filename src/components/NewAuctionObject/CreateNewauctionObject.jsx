@@ -23,7 +23,7 @@ export default function CreateNewauctionObject() {
         const response = await fetch('http://localhost:4000/auction/newitem',{
             method : 'POST',
             headers : {
-                'Authorization' : "Bearer token"
+                'Authorization' : `Bearer ${token}`
             },
             body : JSON.stringify({
                 Title : Title,
