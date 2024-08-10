@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import '../AuctionComponentStyle/AuctionMain.css'
 import img_3 from '../../../public/img_3.png'
+import { useNavigate } from 'react-router-dom'
 
-export default function AuctionMain() {
+
+export default function AuctionMain({ prop }) {
   const [auctionItem, setAuctionItem] = useState([])
+
+  const Navigate = useNavigate()
 
   useEffect(() => {
     const GetAllAuctionObject = async() => {
@@ -21,16 +25,20 @@ export default function AuctionMain() {
       console.log(Array.isArray(result))
 
       setAuctionItem(result)
+      
     }
 
-    // GetAllAuctionObject()
+    GetAllAuctionObject()
   },[])
+
 
   return (
     <div className='Auctionmain'>
       
       {auctionItem?.map((item) => (
-        <div className='Auction_card_component' key={item?._id}>
+
+        <div className='Auction_card_component' key={item?._id} onClick={() => { prop(item?._id), Navigate('/sellItem') }} >
+
           <img src={item?.ImagesOfObject} alt={img_3} className='card_component' />
             <div className='card_component_text'>
               <p>{item?.Title }</p>

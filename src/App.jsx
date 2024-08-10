@@ -8,8 +8,15 @@ import Register from './components/UserRegisterComponent/Register'
 import AuctionPage from './components/AuctionPageComponent/AuctionPage'
 import CreateNewauctionObject from './components/NewAuctionObject/CreateNewauctionObject'
 import UserProfile from './components/Profile/UserProfile'
+import { useState } from 'react'
 
 function App() {
+  const [receivedAuctionItemid, setReceivedAuctionItemId] = useState('')
+
+  function FindingAuctionItemID(id){
+    setReceivedAuctionItemId(id)
+    console.log("Id Passed to CreateNewAuction.jsx Succesfully from App.js")
+  }
 
   return (
     <div>
@@ -17,10 +24,14 @@ function App() {
       <Navbar />
         <Routes>
           <Route path="/"  element = { <Home /> } ></Route>
-          <Route path="/auction" element = { <Auction /> } ></Route>
+
+          <Route path="/auction" element = { <Auction props={FindingAuctionItemID} /> } ></Route>
+
           <Route path="/login" element = { <Login /> }></Route>
           <Route path="/register" element = { <Register /> }></Route>
-          <Route path="/sellItem" element = { <AuctionPage /> }></Route>
+
+          <Route path="/sellItem" element = { <AuctionPage AuctionItemID={receivedAuctionItemid} /> }></Route>
+
           <Route path="/auction/newauction" element = { <CreateNewauctionObject /> }></Route>
           <Route path="/profile" element = { <UserProfile /> }></Route>
         </Routes>

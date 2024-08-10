@@ -60,7 +60,6 @@ export default function AuctionSideBar() {
        <div className='Auction_sidebar_upper_part_text'>
           <p>msh17679@gmail.com</p>
           <div className='Auction_sidebar_upper_part_text_plus_text'>
-            <p><span>+ </span> Auction Live</p>
             <p onClick={moveToCreateNewAuctionPage}><span>+ </span> Create auction</p>
             <p onClick={GetYourAllAuctionObjectWhenYouAreLoggedIn}><span>+ </span>Your Auctions</p>
           </div>
