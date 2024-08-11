@@ -33,13 +33,15 @@ export default function AuctionPage({ AuctionItemID }) {
         console.log("Auction Details fetched Successfully")
         console.log("Response Received from the Backend",result)
 
+        
+
       } catch (error) {
         throw new Error("Failed to Fetch the Data of the Auction Item",error)
       }
     }
 
     // get single Auction Object
-    // getSingleAuctionObjectsFromAuctionObject()
+    getSingleAuctionObjectsFromAuctionObject()
 
   },[])
 
