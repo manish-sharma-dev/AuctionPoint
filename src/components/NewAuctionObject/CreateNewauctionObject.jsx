@@ -11,9 +11,12 @@ export default function CreateNewauctionObject() {
     const [bidIncrement,setbidIncrement] = useState('')
     const [startingDate,setstartingDate] = useState('')
     const [endingDate,setendingDate] = useState('')
+    const [image,setImage] = useState('')
     
     
-    const createaNewAuctionObject = async() => {
+    const createaNewAuctionObject = async(e) => {
+        e.preventDefault()
+
         const token = localStorage.getItem('Accesstoken')
 
         if(!token){
@@ -27,23 +30,14 @@ export default function CreateNewauctionObject() {
         formData.append('bidIncrement',bidIncrement)
         formData.append('startingDate',startingDate)
         formData.append('endingDate',endingDate)
-        formData.append('avatar',document.querySelector('input[type="file"]'))
+        formData.append('ImagesOfObject',image)
 
         const response = await fetch('http://localhost:4000/auction/newitem',{
             method : 'POST',
             headers : {
                 'Authorization' : `Bearer ${token}`
             },
-            body : FormData()
-            // {
-            //     Title : Title,
-            //     Overview : Overview,
-            //     startingBid : startingBid,
-            //     bidIncrement : bidIncrement,
-            //     startingDate : startingBid,
-            //     endingDate : endingDate
-            // }
-// formData.append('avatar', document.querySelector('input[type="file"]').files[0]); // Append the file
+            body : formData
         })
         
 
@@ -51,7 +45,7 @@ export default function CreateNewauctionObject() {
             throw new Error("error Ouccred while Creating a new Auction")
         }
 
-        console.log("Auction Object Created Successfully")
+        console.log("Auction Object Created Successfully",response)
         
     }
 
@@ -60,7 +54,7 @@ export default function CreateNewauctionObject() {
      <div className='wrapping'>
         <div className='new-auction-ele'>
             <p className='new-auction-para'>Create a new Auction Item ...</p>
-                <form className='new-auction-form-ele' method='POST' action='/newitem' encType='multipart/form-data'  onSubmit={createaNewAuctionObject}>
+                <form className='new-auction-form-ele'  onSubmit={createaNewAuctionObject} encType='multipart/form-data'>
                     <div className='new-auction-form-div-ele'>
                         <div className='text-part'>
 
@@ -101,7 +95,7 @@ export default function CreateNewauctionObject() {
 
                             <div className='img-div'>
                                     <label>Image of Product</label>
-                                    <input type='file' placeholder='StartingBid' name='ImagesOfObject' className='inputfield' />
+                                    <input type='file' placeholder='StartingBid' name='ImagesOfObject' onChange={(e) => setImage(e.target.files[0])} className='inputfield' />
                            </div>
 
                         </div>
