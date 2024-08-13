@@ -4,6 +4,7 @@ import img4 from '../../../public/img_3.png'
 export default function AuctionComment({ AuctionItemID }) {
   const [comments,ShowAllComments] = useState([])
   const [CommentUserdetail,setCommentUserDetail] = useState([])
+  const [AddComment,setAddComments] = useState('')
 
   useEffect(()=>{
     const GetAllBidOfaCertainAuctionObject = async() => {
@@ -85,6 +86,36 @@ export default function AuctionComment({ AuctionItemID }) {
     GetAllBidOfaCertainAuctionObject()
   },[])
 
+  const AddnewComment = async() => {
+    const token = localStorage.getItem('Accesstoken')
+    if(!token){
+      throw new Error("user Must be Loggedin in order to add new Token")
+    }
+
+    console.log("id of Auction item",AuctionItemID)
+
+    const response = await fetch('http://localhost:4000/comment/addComment',{
+      method : 'POST',
+      headers : {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body : JSON.stringify({
+        content : AddComment,
+        auctionItemId : AuctionItemID
+      })
+    })
+
+    if(!response.ok){
+      throw new Error("respose is not Valid")
+    }
+
+    const body = await response.json()
+
+    console.log("Respose received from backend by Adding New Bid",body)
+
+  }
+
 
   return (
     <div className='Auction_comment'>
@@ -92,9 +123,10 @@ export default function AuctionComment({ AuctionItemID }) {
         <p>Comments : </p>
 
         <div style={{ display : 'flex'}}>
-           <input type='text' style={{ backgroundColor:'var(--background-color)', borderStyle:'none',border:'1px solid var(--Secondary-text-color)',fontSize:'14px', color:'var(--Secondary-text-color)',padding:'0 10px',borderRadius:'2px' }} placeholder='Comment Here'/>
 
-           <button className='btn' style={{ cursor : 'pointer',marginRight:'1rem' }} >Add Comment:</button>
+           <input type='text' style={{ backgroundColor:'var(--background-color)', borderStyle:'none',border:'1px solid var(--Secondary-text-color)',fontSize:'14px', color:'var(--Secondary-text-color)',padding:'0 10px',borderRadius:'2px' }} placeholder='Comment Here' id='Addcomment' value={AddComment} onChange={(e) => setAddComments(e.target.value)} />
+
+           <button className='btn' style={{ cursor : 'pointer',marginRight:'1rem' }} onClick={AddnewComment} >Add Comment:</button>
         </div>
 
       </div>
