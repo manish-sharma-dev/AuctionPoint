@@ -31,7 +31,7 @@ const [password,setPassword] = useState('')
 
   return (
     <div className='register'>
-      <form className='register-form' method='POST'>
+      <form className='register-form' method='POST' action='/upload' encType='multipart/form-data' onSubmit={RegisterNewUser}>
 
           <p className='register-para-1'>Register a new Account</p>
           <div className='register-input-field'>
@@ -39,8 +39,8 @@ const [password,setPassword] = useState('')
             <input type='text' placeholder='🔸fullName' className='input' value={fullName} onChange={(e) => setfullName(e.target.value)} />
             <input type='email' placeholder='🔸Email' className='input' value={email} onChange={(e) => setEmail(e.target.value)} />
             <input type='password' placeholder='🔸password' className='input' value={password} onChange={(e) => setPassword(e.target.value)} />
-            <input type='file'/>
-            <button className='register-btn'>Submit</button>
+            <input type='file' name='avatar'/>
+            <button className='register-btn' type='submit'>Submit</button>
           </div>
           
           <p className='register-para-2'>Already Have account ? <span><Link to="/login" className='register-span'> Login</Link></span></p>

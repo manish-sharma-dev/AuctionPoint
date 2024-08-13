@@ -9,6 +9,7 @@ import AuctionBid from './AuctionBid'
 import AuctionComment from './AuctionComment'
 
 export default function AuctionPage({ AuctionItemID }) {
+
   const [auctionItemDetail,setAuctionItemDetail] = useState({ })
 
   useEffect(()=>{
@@ -45,6 +46,59 @@ export default function AuctionPage({ AuctionItemID }) {
 
   },[])
 
+
+  // add bid
+
+  function AddBid(){
+    const bidValue = prompt("Enter the bid Amount")
+    const value = parseInt(bidValue.valueOf())
+
+    if(typeof(value) == String){
+      throw new Error('Value must be integer')
+    }
+
+    console.log("BidValue",value)
+
+    return value
+  }
+
+  // function Calling from the backend
+
+  const AddNewBid =async() =>{
+    const token = localStorage.getItem('Accesstoken')
+    if(!token){
+      throw new Error("user Must be Loggedin in order to add new Token")
+    }
+
+    console.log("id of Auction item",AuctionItemID)
+
+    const bidValue = AddBid()
+
+    console.log("adding bid details",bidValue,AuctionItemID)
+    
+    const response = await fetch('http://localhost:4000/bid/addnewbid',{
+      method : 'POST',
+      headers : {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body : JSON.stringify({
+        BidAmount : bidValue,
+        auctionItemId : AuctionItemID
+      })
+    })
+
+    if(!response.ok){
+      throw new Error("respose is not Valid")
+    }
+
+    const body = await response.json()
+
+    console.log("Respose received from backend by Adding New Bid",body)
+  }
+
+
+
   return (
     <div className='wrapped'>
       <div className='wrapping'>
@@ -60,7 +114,9 @@ export default function AuctionPage({ AuctionItemID }) {
             <p>Owner Names</p>
             <p>Latest Bid : $30 by sam altsman</p>
             <div className='auction-page-btn-text-part'>
-              <button id='btn2' className='btn'>PLace Bid</button>
+
+              <button id='btn2' className='btn' onClick={AddNewBid}>PLace Bid</button>
+
               <p>Starting Date :{auctionItemDetail?.startingDate}</p>
               <p>Endind Date :{auctionItemDetail?.endingDate}</p>
             </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../AuctionPageStyle/AuctionBid.css'
-import img4 from '../../../public/img_3.png'
+// import img4 from '../../../public/img_3.png'
 
 export default function AuctionBid({ AuctionItemID }) {
   const [bids,ShowAllBid] = useState([])
@@ -23,7 +23,6 @@ export default function AuctionBid({ AuctionItemID }) {
         const result = data?.data
 
         console.log("result reeived in the Bid Section",result)
-        // console.log("id of the User",result?.userId)
 
         // fetching user dtails alos
         
@@ -91,13 +90,13 @@ export default function AuctionBid({ AuctionItemID }) {
   return (
     <div className='Auction-bid'>
         <p>Bid List : </p>
-       {Array.isArray(bidUserdetail) && bidUserdetail.map((item) => (
-          <div className='Auction-bid-part'>
+       {Array.isArray(bidUserdetail) && bidUserdetail.map((item,id) => (
+          <div className='Auction-bid-part' key={id}>
           <img src={item?.avatar} alt="Auction_Bid_profile"  className='Auction_img_part'/>
               <div>
                   <p>{item?.username}</p>
                   {Array.isArray(bids) && bids.map((bid) => (
-                    <p className='auction-para-part-2'>{`${item?.fullName} Added bid of $${bid?.BidAmount}`}</p>
+                    <p className='auction-para-part-2' key={bid?._id}>{`${item?.fullName} Added bid of $${bid?.BidAmount}`}</p>
                   ))}
               </div>
           </div>
